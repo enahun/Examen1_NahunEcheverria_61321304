@@ -15,6 +15,7 @@ router.get('/',function (req, res){
             res.status(500).send('Error en la base de datos');
         else
             res.status(200).json(vuelosModel);
+            res.send(path.join(__dirname,'public','index.html'));
     });
 });
 
