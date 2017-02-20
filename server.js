@@ -5,7 +5,7 @@ var bodyParser     = require('body-parser');
 var path     	   = require('path');
 var methodOverride = require('method-override');
 var logger 		   = require('morgan');
-var personas       = require('./app/routes/personas');
+var vuelos         = require('./app/routes/vuelos');
 var app            = express();
 
 // configuration ===========================================
@@ -30,12 +30,20 @@ app.use(express.static(path.join(__dirname,'public'))); // set the static files 
 app.use(logger('dev'));
 
 // routes ==================================================
-app.use('/api/personas', personas);
+app.use('/api/vuelos', vuelos);
 
 //frontend
 var path = require('path');
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname,'public','index.html'));
+});
+var path = require('path');
+app.get('/vuelos', function(req, res) {
+	res.sendFile(path.join(__dirname,'public' ,'vuelos.html'));
+});
+
+app.get('*', function(req, res){
+  res.send('Esta pagina no Existe', 404);
 });
 
 // start app ===============================================
