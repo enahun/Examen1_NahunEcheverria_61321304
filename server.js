@@ -5,7 +5,7 @@ var bodyParser     = require('body-parser');
 var path     	   = require('path');
 var methodOverride = require('method-override');
 var logger 		   = require('morgan');
-var vuelos       = require('./app/routes/vuelos');
+var personas       = require('./app/routes/personas');
 var app            = express();
 
 // configuration ===========================================
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname,'public'))); // set the static files 
 app.use(logger('dev'));
 
 // routes ==================================================
-app.use('/api/vuelos', vuelos);
+app.use('/api/personas', personas);
 
 //frontend
 var path = require('path');
